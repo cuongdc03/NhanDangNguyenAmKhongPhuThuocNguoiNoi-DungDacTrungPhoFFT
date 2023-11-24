@@ -30,4 +30,4 @@ TLTK:
 [4]CITA_SoSanhPhuongPhapDuongBaoPhovaPhuongPhapAnhPhoTrongTimKiemAmNhac_2021 (phần 2 về mô hình của BT tìm kiếm/nhận dạng dựa trên so khớp mẫu).
 
 <h1>Algorithm Example</h1>
-<img src="https://github.com/NT912/NhanDangNguyenAmKhongPhuThuocNguoiNoi-DungDacTrungPhoFFT/blob/main/img/AlgorithmMain.png">
+<img src="img/AlgorithmMain.png">
