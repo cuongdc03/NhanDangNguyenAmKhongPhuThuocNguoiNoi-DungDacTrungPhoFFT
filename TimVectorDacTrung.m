@@ -7,7 +7,7 @@ TenFolder={'23MTL','24FTL','25MLM','27MCM','28MVN','29MHN','30FTN','32MTP','33MH
 
 %TenFolder = {'01MDA','02FVA','03MAB','04MHB','05MVB','06FTB','07FTC','08MLD','09MPD','10MSD','11MVD','12FTD','14FHH','15MMH','16FTH','17MTH','18MNK','19MXK','20MVK','21MTL','22MHL'};
 
-DoDaiVectorDacTrung_fft = 2048;                        % N_FFT                    
+DoDaiVectorDacTrung_fft = 1024;                        % N_FFT                    
 VectorDacTrung=zeros(5,DoDaiVectorDacTrung_fft/2);   
 DoDaiKhung = 0.03;                                                    
 DoDichKhung = 0.01;                                                                                            
