@@ -5,7 +5,7 @@ TenFolder = {'01MDA','02FVA','03MAB','04MHB','05MVB','06FTB','07FTC','08MLD','09
 % goi ham va truyen thong so vao cho cac bien
 MaTranNhamLan=zeros(5,5);                    
 [VectorDacTrung] = TimVectorDacTrung(); 
-SoPhanTuVector_fft = 1024;         % N_FFT:128, 256, 512, 2048,4096,...       
+SoPhanTuVector_fft = 2048;         % N_FFT:128, 256, 512, 2048,4096,...       
 DoDaiKhung = 0.03;                               
 DoDichKhung = 0.01;                            
 
@@ -76,7 +76,12 @@ for k=1:5
 end
 Tong=(Tong/(21*5))*100;
 disp(strcat('Do chinh xac tong          :',num2str(Tong),'%'));
-
+%tableData = array2table(MaTranNhamLan, 'VariableNames', {'a', 'e', 'i', 'o', 'u'}, 'RowNames', {'a', 'e', 'i', 'o', 'u'});
+% Hi?n th? b?ng d? li?u
+%disp('Confusion Matrix:');
+%disp(tableData);
+figure;
+uitable('Data', MaTranNhamLan, 'ColumnName', {'a', 'e', 'i', 'o', 'u'}, 'RowName', {'a', 'e', 'i', 'o', 'u'}, 'Units', 'Normalized', 'Position', [0, 0, 1, 1]);
 
 
 
