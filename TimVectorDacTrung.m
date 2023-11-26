@@ -5,9 +5,8 @@ function [VectorDacTrung] = TimVectorDacTrung()
 NguyenAm = {'a','e','i','o','u'};
 TenFolder={'23MTL','24FTL','25MLM','27MCM','28MVN','29MHN','30FTN','32MTP','33MHP','34MQP','35MMQ','36MAQ','37MDS','38MDS','39MTS','40MHS','41MVS','42FQT','43MNT','44MTT','45MDV'};
 
-%TenFolder = {'01MDA','02FVA','03MAB','04MHB','05MVB','06FTB','07FTC','08MLD','09MPD','10MSD','11MVD','12FTD','14FHH','15MMH','16FTH','17MTH','18MNK','19MXK','20MVK','21MTL','22MHL'};
 
-DoDaiVectorDacTrung_fft = 2048;                        % N_FFT                    
+DoDaiVectorDacTrung_fft = 1024;                        % N_FFT                    
 VectorDacTrung=zeros(5,DoDaiVectorDacTrung_fft);   
 DoDaiKhung = 0.03;                                                    
 DoDichKhung = 0.01;                                                                                            
@@ -21,20 +20,20 @@ hold on
          [x] = CatKhoangLang(x,fs,0.01);                            
          [x] = LayDoanOnDinh(x);                                      
          SoLuongKhung = floor((size(x,1) - DoDaiKhung*fs)/(DoDichKhung*fs)) + 1;  % tinh so luong khung
-         Total = 0;                                                               % vector tong cac vector fft
+         TongcacVector = 0;                                                               % vector tong cac vector fft
          for j=1:SoLuongKhung                                         
              [frame] = Chiakhung(x, fs, DoDaiKhung, DoDichKhung, j);                           
              [result] = FFT(frame, DoDaiVectorDacTrung_fft);                                                 
-             Total = Total + result;                                           
+             TongcacVector = TongcacVector + result;                                           
          end
-         Total = Total/SoLuongKhung;  % vector fft tb (1 nguyen am/ 1 nguoi noi)
-         Total = Total(1:length(Total));  % lay 1 nua vector (vi la vector doi xung)                 
-         for m =1:length(Total) 
-             VectorDacTrung(k,m)=VectorDacTrung(k,m)+Total(m);   % tong cac vector fft cua nhieu nguoi noi
+         TongcacVector = TongcacVector/SoLuongKhung;  % vector fft tb (1 nguyen am/ 1 nguoi noi)
+         TongcacVector = TongcacVector(1:length(TongcacVector)/2);  % lay 1 nua vector (vi la vector doi xung)                 
+         for m =1:length(TongcacVector) 
+             VectorDacTrung(k,m)=VectorDacTrung(k,m)+TongcacVector(m);   % tong cac vector fft cua nhieu nguoi noi
          end
         
      end
-     for m =1:length(Total)
+     for m =1:length(TongcacVector)
          VectorDacTrung(k,m)=VectorDacTrung(k,m)/21;      % vector fft trung binh cua 1 nguyen am 
      end
         
