@@ -8,7 +8,7 @@ TenFolder={'23MTL','24FTL','25MLM','27MCM','28MVN','29MHN','30FTN','32MTP','33MH
 
 DoDaiVectorDacTrung_fft = 1024;                        % N_FFT                    
 VectorDacTrung=zeros(5,DoDaiVectorDacTrung_fft);   
-DoDaiKhung = 0.02;                                                    
+DoDaiKhung = 0.03;                                                    
 DoDichKhung = 0.02;                                                                                            
 figure;
 hold on
